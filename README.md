@@ -2,7 +2,7 @@
 
 ## Learning Objectives
 
-* Pracice reading tests and test errors
+* Practice reading tests and test errors
 * Practice writing functions
 * Learn how to use JavaScript's `toUpperCase()` and `toLowerCase()` methods
 * Practice using `return` and `console.log()`
@@ -85,7 +85,8 @@ per function, but let's start with this one.
 
 ### Running the Tests
 
-To run the tests, run `npm test` in the terminal. The first output you'll see will look like this:
+To run the tests, run `npm test` in the terminal. The first output you'll see
+will look like this:
 
 ```text
 > java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
@@ -174,7 +175,7 @@ When we write our code, we follow the guidance of the tests. Let's take a look a
       at processImmediate (internal/timers.js:461:21)
 ```
 
-This is the output that comes from this test in `index-test.js`:
+The output above comes from this test in `index-test.js`:
 
 ```js
 describe('shout(string)', function() {
@@ -184,7 +185,9 @@ describe('shout(string)', function() {
 })
 ```
 
-This information tells us that the test is expecting a function called `shout` that accepts an argument but that `shout` isn't defined. So let's start by declaring our function in `index.js`:
+We know that the test is expecting a function called `shout` that accepts an
+argument. The error tells us that `shout` isn't defined. So let's start by
+declaring our function in `index.js`:
 
 ``` javascript
 function shout(string) {
@@ -192,8 +195,8 @@ function shout(string) {
 ```
 
 We know we won't pass the test yet because our function doesn't do anything yet.
-However, if we rerun the test, it should give us more information about what we
-need to do:
+However, if we rerun the test, it should now give us more information about what
+we need to do:
 
 ```text
   1) shout(string)
@@ -205,9 +208,13 @@ need to do:
       at processImmediate (internal/timers.js:461:21)
 ```
 
-When we see `Error: Expected undefined to equal [something]`, we know that the test is looking for a `return` value. We can also see the description of what the function should do: it `receives one argument and returns it in all caps`.
+Anytime you see `Error: Expected undefined to equal [something]`, that means
+that the test is looking for a `return` value. We can also see the description
+of what the function should do: it `receives one argument and returns it in all
+caps`.
 
-Okay, so with that information, we know that our function should return whatever string is passed in as an argument:
+Okay, so with that information, we know that our function should return whatever
+string is passed in as an argument:
 
 ``` javascript
 function shout(string) {
@@ -305,6 +312,8 @@ Now it's your turn to get the rest of the tests to pass. Note that some of them
 require you to use `console.log()` instead of `return` &mdash; follow the
 guidance of the tests!
 
+### Instructions
+
 In this lab, we're writing functions that "speak" at different volumes &mdash; they
 whisper or they shout. The next test is similar to the first:
 
@@ -317,54 +326,52 @@ whisper or they shout. The next test is similar to the first:
 ```
 
 This test is telling us that `whisper(string)` receives one argument and returns
-it in all lowercase. At the moment, the test is failing becasue whisper is not
+it in all lowercase. At the moment, the test is failing because whisper is not
 defined.
 
 > **Note:** Just like `.toUpperCase()` changes any string to all uppercase in JavaScript, `.toLowerCase()` (e.g., `'HELLO'.toLowerCase()`) changes any string to all lowercase.
 
 The next two tests are checking to see if a specific string is logged when a
 function is called. You will still need to use the `.toUpperCase()` and
-`.toLowerCase()` methods for `logShout(string)` and `logWhisper(string)`. Keep in
-mind though that these tests are not looking for return values, only logs.
+`.toLowerCase()` methods for `logShout(string)` and `logWhisper(string)`. Keep
+in mind, though, that these tests are not looking for return values, only logs.
 
 The final function you need to create is `sayHiToGrandma()`. Grandma is a bit
 hard of hearing, so whispering can be a bit difficult, but she'll always hear
 you if you say, "I love you, Grandma." This time, you will need to return
 different strings depending on the string passed into the function.
 
-> **Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to write **one** function. This function should be able to handle all three test conditions:
-> * If the string that is passed into the function is all lowercase, the function should return "I can't hear you!"
-> * If the string that is passed into the function is all uppercase, the function should return "YES INDEED!"
-> * If the string that is passed into the function is equal to "I love you, Grandma.", the function should return "I love you, too."
+**Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to write **one** function. This function should be able to handle all three test conditions:
 
-How do we check if a string is all lowercase or all uppercase?
+* If the string that is passed into the function is all lowercase, the function should return "I can't hear you!"
+* If the string that is passed into the function is all uppercase, the function should return "YES INDEED!"
+* If the string that is passed into the function is equal to "I love you, Grandma.", the function should return "I love you, too."
 
-```javascript
-const uppercase = "HELLO!";
+How do we check if a string is all lowercase or all uppercase? Let's take a look using a REPL:
 
-uppercase.toUpperCase() === uppercase; // true
+<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-const lowercase = 'hello!';
+In the first line we're defining a string variable. In the next two lines we log
+the original variable, then the variable after calling `toUpperCase()` on it.
+Finally, we're checking to see whether those two values are equal. If you click
+the Run button, you'll see that the original string is mixed case and the upper
+cased version of it is (not surprisingly) uppercase. It should not come as a
+surprise, therefore, that comparing them with the equality operator (`===`)
+returns false. What do you think will happen if we initialize `string` to
+"HELLO!" instead? Play around with different values for `string` and see what
+happens. Also try doing the same thing with `toLowerCase()` and make sure you
+understand what's happening.
 
-lowercase.toLowerCase() === lowercase; // true
-
-const mixedCase = 'Hi there!';
-
-mixedCase.toLowerCase() === mixedCase; // false
-
-mixedCase.toUpperCase() === mixedCase; // false
-```
-
-We can simply check whether the string is the same when we convert it to
-uppercase or lowercase! (The lines with the `===` comparisons are the ones that
-check). If it's the same, then it was already in that case; if not, then it's
-either in the other case or it's mixed case. Now that we know how to compare
-strings, how can we use these comparisons to conditionally return different
-strings? If you need a refresher, go back and review the lesson on Selection
-with Conditionals.
+Basically, if we compare a string to its uppercased (or lowercased) version and
+the two values are equal, then we know that the original string is uppercase (or
+lowercase). So now that we know how to make these comparisons, how can we use
+them to conditionally return different strings? If you need a refresher, go back
+and review the lesson on Selection with Conditionals.
 
 Remember that punctuation is important! Humans might be able to understand that
 "I love you Grandma" is close enough to "I love you, Grandma." and means the
 same thing but JavaScript will not consider these equal!
+
+**Reminder:** As you're working through the tests, you can run your code by running `node index.js` in the terminal. If you want to do this, remember that you'll need to _call_ the function inside `index.js`. If you are just running tests, however, you don't need to include a function call &mdash; the tests will handle that for you.
 
 Good luck!
