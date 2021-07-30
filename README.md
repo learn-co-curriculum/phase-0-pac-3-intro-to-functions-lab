@@ -54,7 +54,7 @@ describe('shout(string)', function(){
 ```
 
 `describe` is a function provided by our test runner (in this case, we're using
-[Mocha](https://mochajs.org/)) &mdash; it's basically a container for our tests.
+[Mocha](https://mochajs.org/)) — it's basically a container for our tests.
 
 Let's take a closer look at that `describe()`:
 
@@ -79,8 +79,8 @@ expect(shout('hello')).toEqual('HELLO');
 ```
 
 which says that it _expects_ a call to `shout()` with the string `'hello'` will
-`equal` the string `'HELLO'`. This is the actual test &mdash; otherwise called a spec,
-expectation, or assertion &mdash; for this function. We can have more than one test
+`equal` the string `'HELLO'`. This is the actual test — otherwise called a spec,
+expectation, or assertion — for this function. We can have more than one test
 per function, but let's start with this one.
 
 ### Running the Tests
@@ -309,12 +309,12 @@ Hey! We got one to pass! Six left.
 ## Your Turn
 
 Now it's your turn to get the rest of the tests to pass. Note that some of them
-require you to use `console.log()` instead of `return` &mdash; follow the
+require you to use `console.log()` instead of `return` — follow the
 guidance of the tests!
 
 ### Instructions
 
-In this lab, we're writing functions that "speak" at different volumes &mdash; they
+In this lab, we're writing functions that "speak" at different volumes — they
 whisper or they shout. The next test is similar to the first:
 
 ```text
@@ -372,7 +372,7 @@ Remember that punctuation is important! Humans might be able to understand that
 "I love you Grandma" is close enough to "I love you, Grandma." and means the
 same thing but JavaScript will not consider these equal!
 
-**Reminder:** As you're working through the tests, you can run your code by running `node index.js` in the terminal. If you want to do this, remember that you'll need to _call_ the function inside `index.js`. If you are just running tests, however, you don't need to include a function call &mdash; the tests will handle that for you.
+**Reminder:** As you're working through the tests, you can run your code by running `node index.js` in the terminal. If you want to do this, remember that you'll need to _call_ the function inside `index.js`. If you are just running tests, however, you don't need to include a function call — the tests will handle that for you.
 
 Good luck!
 
