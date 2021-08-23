@@ -2,11 +2,11 @@
 
 ## Learning Objectives
 
-* Practice reading tests and test errors
-* Practice writing functions
-* Learn how to use JavaScript's `toUpperCase()` and `toLowerCase()` methods
-* Practice using `return` and `console.log()`
-* Practice creating conditional statements
+- Practice reading tests and test errors
+- Practice writing functions
+- Learn how to use JavaScript's `toUpperCase()` and `toLowerCase()` methods
+- Practice using `return` and `console.log()`
+- Practice creating conditional statements
 
 ## Introduction
 
@@ -30,27 +30,27 @@ doing?
 
 At the very top of the file, you'll see
 
-``` javascript
-global.expect = require('expect');
+```js
+global.expect = require("expect");
 
-const babel = require('babel-core');
-const jsdom = require('jsdom');
-const path = require('path');
+const babel = require("babel-core");
+const jsdom = require("jsdom");
+const path = require("path");
 ```
 
 This might be a bit bewildering, but all we're doing is referencing different
 _libraries_ that help us run the tests. You may recall that we talked about
 _packages_ in an earlier lesson. A library is similar: it's code that someone
-else (usually multiple someone elses) wrote for our use. The code above makes
-the libraries available inside our test environment, which enables us to run the
+else (usually multiple someones) wrote for our use. The code above makes the
+libraries available inside our test environment, which enables us to run the
 tests.
 
 If you go to `test/index-test.js`, you'll see
 
-``` javascript
-describe('shout(string)', function(){
+```js
+describe("shout(string)", function () {
   // there's stuff in here, too
-})
+});
 ```
 
 `describe` is a function provided by our test runner (in this case, we're using
@@ -58,12 +58,12 @@ describe('shout(string)', function(){
 
 Let's take a closer look at that `describe()`:
 
-``` javascript
-describe('shout(string)', function(){
-  it('receives one argument and returns it in all caps', function() {
+```js
+describe("shout(string)", function () {
+  it("receives one argument and returns it in all caps", function () {
     // we'll get to this in a sec
-  })
-})
+  });
+});
 ```
 
 These internal `describe()` calls are used for _describing_ the functions that
@@ -74,8 +74,8 @@ specific, don't you think?). It should _return_ that argument in all caps.
 
 Finally, we have
 
-``` javascript
-expect(shout('hello')).toEqual('HELLO');
+```js
+expect(shout("hello")).toEqual("HELLO");
 ```
 
 which says that it _expects_ a call to `shout()` with the string `'hello'` will
@@ -88,9 +88,10 @@ per function, but let's start with this one.
 To run the tests, run `npm test` in the terminal. The first output you'll see
 will look like this:
 
-```text
-> java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
-> mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 10000
+```console
+$ npm test
+java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
+mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 10000
 
 
 
@@ -167,7 +168,7 @@ pass. Open up `index.js`.
 
 When we write our code, we follow the guidance of the tests. Let's take a look at that first error:
 
-```text
+```console
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
@@ -178,27 +179,26 @@ When we write our code, we follow the guidance of the tests. Let's take a look a
 The output above comes from this test in `index-test.js`:
 
 ```js
-describe('shout(string)', function() {
-  it('receives one argument and returns it in all caps', function() {
-    expect(shout('hello')).toEqual('HELLO');
-  })
-})
+describe("shout(string)", function () {
+  it("receives one argument and returns it in all caps", function () {
+    expect(shout("hello")).toEqual("HELLO");
+  });
+});
 ```
 
 We know that the test is expecting a function called `shout` that accepts an
 argument. The error tells us that `shout` isn't defined. So let's start by
 declaring our function in `index.js`:
 
-``` javascript
-function shout(string) {
-}
+```js
+function shout(string) {}
 ```
 
 We know we won't pass the test yet because our function doesn't do anything yet.
 However, if we rerun the test, it should now give us more information about what
 we need to do:
 
-```text
+```console
   1) shout(string)
        receives one argument and returns it in all caps:
      Error: Expected undefined to equal 'HELLO'
@@ -210,13 +210,12 @@ we need to do:
 
 Anytime you see `Error: Expected undefined to equal [something]`, that means
 that the test is looking for a `return` value. We can also see the description
-of what the function should do: it `receives one argument and returns it in all
-caps`.
+of what the function should do: it `receives one argument and returns it in all caps`.
 
 Okay, so with that information, we know that our function should return whatever
 string is passed in as an argument:
 
-``` javascript
+```js
 function shout(string) {
   return string;
 }
@@ -226,14 +225,14 @@ But we're still missing one piece: how do we make `string` all caps? JavaScript
 has a built-in method for that! It's called `toUpperCase()`. We can call it on
 any string:
 
-``` javascript
-'Hello!'.toUpperCase(); // 'HELLO!'
+```js
+"Hello!".toUpperCase(); // 'HELLO!'
 ```
 
 Above, we've called it directly on a literal string but, of course, we can also
 call it on a variable. So let's try it with our `shout()` function:
 
-``` javascript
+```js
 function shout(string) {
   return string.toUpperCase();
 }
@@ -241,7 +240,7 @@ function shout(string) {
 
 and run our tests again. We get:
 
-```test
+```console
 shout(string)
     ✓ receives one argument and returns it in all caps
 
@@ -309,15 +308,15 @@ Hey! We got one to pass! Six left.
 ## Your Turn
 
 Now it's your turn to get the rest of the tests to pass. Note that some of them
-require you to use `console.log()` instead of `return` — follow the
-guidance of the tests!
+require you to use `console.log()` instead of `return` — follow the guidance of
+the tests!
 
 ### Instructions
 
 In this lab, we're writing functions that "speak" at different volumes — they
 whisper or they shout. The next test is similar to the first:
 
-```text
+```console
 1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
@@ -329,7 +328,9 @@ This test is telling us that `whisper(string)` receives one argument and returns
 it in all lowercase. At the moment, the test is failing because whisper is not
 defined.
 
-> **Note:** Just like `.toUpperCase()` changes any string to all uppercase in JavaScript, `.toLowerCase()` (e.g., `'HELLO'.toLowerCase()`) changes any string to all lowercase.
+> **Note:** Just like `.toUpperCase()` changes any string to all uppercase in
+> JavaScript, `.toLowerCase()` (e.g., `'HELLO'.toLowerCase()`) changes any
+> string to all lowercase.
 
 The next two tests are checking to see if a specific string is logged when a
 function is called. You will still need to use the `.toUpperCase()` and
@@ -341,11 +342,16 @@ hard of hearing, so whispering can be a bit difficult, but she'll always hear
 you if you say, "I love you, Grandma." This time, you will need to return
 different strings depending on the string passed into the function.
 
-**Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to write **one** function. This function should be able to handle all three test conditions:
+**Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to
+write **one** function. This function should be able to handle all three test
+conditions:
 
-* If the string that is passed into the function is all lowercase, the function should return "I can't hear you!"
-* If the string that is passed into the function is all uppercase, the function should return "YES INDEED!"
-* If the string that is passed into the function is equal to "I love you, Grandma.", the function should return "I love you, too."
+- If the string that is passed into the function is all lowercase, the function
+  should return "I can't hear you!"
+- If the string that is passed into the function is all uppercase, the function
+  should return "YES INDEED!"
+- If the string that is passed into the function is equal to "I love you,
+  Grandma.", the function should return "I love you, too."
 
 How do we check if a string is all lowercase or all uppercase? Let's take a look using a REPL:
 
@@ -372,23 +378,26 @@ Remember that punctuation is important! Humans might be able to understand that
 "I love you Grandma" is close enough to "I love you, Grandma." and means the
 same thing but JavaScript will not consider these equal!
 
-**Reminder:** As you're working through the tests, you can run your code by running `node index.js` in the terminal. If you want to do this, remember that you'll need to _call_ the function inside `index.js`. If you are just running tests, however, you don't need to include a function call — the tests will handle that for you.
+**Reminder:** As you're working through the tests, you can run your code by
+running `node index.js` in the terminal. If you want to do this, remember that
+you'll need to _call_ the function inside `index.js`. If you are just running
+tests, however, you don't need to include a function call — the tests will
+handle that for you.
 
 Good luck!
 
 ## Saving Your Work Remotely
 
 Currently, the work you've done on this assignment is only on your local
-machine. To preserve your solution on your GitHub fork, you will need to stage the
-changes you've made, commit them, and push the commit up to GitHub. Use
-the following commands to do this:
+machine. To preserve your solution on your GitHub fork, you will need to stage
+the changes you've made, commit them, and push the commit up to GitHub. Use the
+following commands to do this:
 
-```sh
-git add .
-git commit -m "Completed assignment"
-git push
+```console
+$ git add .
+$ git commit -m "Completed assignment"
+$ git push
 ```
 
 If you visit your fork on GitHub, you should now see that _you've_ made the most
 recent commit, and your code will be present in the files.
-
