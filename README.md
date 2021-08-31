@@ -1,6 +1,6 @@
 # Introduction to Functions Lab
 
-## Learning Objectives
+## Learning Goals
 
 - Practice reading tests and test errors
 - Practice writing functions
