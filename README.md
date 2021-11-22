@@ -90,8 +90,8 @@ will look like this:
 
 ```console
 $ npm test
-java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
-mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 10000
+> java-script-intro-to-functions-lab@0.1.0 test
+> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
 
 
 
@@ -102,10 +102,10 @@ mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 1000
     2) receives one argument and returns it in all lowercase
 
   logShout(string)
-    3) calls console.log() its one argument in all caps
+    3) takes a string argument and logs it in all caps using console.log()
 
   logWhisper(string)
-    4) calls console.log() its one argument in all lowercase
+    4) takes a string argument and logs it in all lowercase using console.log()
 
   sayHiToGrandma(string)
     5) returns "I can't hear you!" if `string` is lowercase
@@ -113,58 +113,93 @@ mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 1000
     7) returns "I love you, too." if `string` is "I love you, Grandma."`
 
 
-  0 passing (99ms)
+  0 passing (141ms)
   7 failing
 
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
       at Context.<anonymous> (test/index-test.js:4:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   2) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
       at Context.<anonymous> (test/index-test.js:10:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   3) logShout(string)
-       calls console.log() its one argument in all caps:
+       takes a string argument and logs it in all caps using console.log():
      ReferenceError: logShout is not defined
       at Context.<anonymous> (test/index-test.js:18:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   4) logWhisper(string)
-       calls console.log() its one argument in all lowercase:
+       takes a string argument and logs it in all lowercase using console.log():
      ReferenceError: logWhisper is not defined
       at Context.<anonymous> (test/index-test.js:30:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   5) sayHiToGrandma(string)
        returns "I can't hear you!" if `string` is lowercase:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   6) sayHiToGrandma(string)
        returns "YES INDEED!" if `string` is uppercase:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:44:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   7) sayHiToGrandma(string)
        returns "I love you, too." if `string` is "I love you, Grandma."`:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
-      at processImmediate (internal/timers.js:456:21)
-
-
-
-npm ERR! Test failed.  See above for more details.
+      at processImmediate (internal/timers.j
 ```
 
-Hm, seven failed tests. Let's see if we can get that _first_ test to
-pass. Open up `index.js`.
+Hm, seven failed tests - that seems like a lot to navigate. Let's go ahead and
+get Mocha set up to only show the first failing test. First, create the
+`mocha.opts` file:
+
+```sh
+touch test/mocha.opts
+```
+
+Then open the new file in your text editor and add the following:
+
+```text
+--bail
+```
+
+Save the file and run the tests. You should now see something like this:
+
+```console
+$ npm test
+
+> java-script-intro-to-functions-lab@0.1.0 test
+> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
+
+
+
+  shout(string)
+    1) receives one argument and returns it in all caps
+
+  0 passing (159ms)
+  1 failing
+
+  1) shout(string)
+       receives one argument and returns it in all caps:
+     ReferenceError: shout is not defined
+      at Context.<anonymous> (test/index-test.js:4:5)
+      at processImmediate (internal/timers.js:461:21)
+
+
+```
+
+Much better! Now let's see if we can get that first test to pass. Open up
+`index.js`.
 
 When we write our code, we follow the guidance of the tests. Let's take a look at that first error:
 
@@ -241,69 +276,23 @@ function shout(string) {
 and run our tests again. We get:
 
 ```console
-shout(string)
+  shout(string)
     ✓ receives one argument and returns it in all caps
 
   whisper(string)
     1) receives one argument and returns it in all lowercase
 
-  logShout(string)
-    2) calls console.log() its one argument in all caps
-
-  logWhisper(string)
-    3) calls console.log() its one argument in all lowercase
-
-  sayHiToGrandma(string)
-    4) returns "I can't hear you!" if `string` is lowercase
-    5) returns "YES INDEED!" if `string` is uppercase
-    6) returns "I love you, too." if `string` is "I love you, Grandma."`
-
-
-  1 passing (108ms)
-  6 failing
+  1 passing (147ms)
+  1 failing
 
   1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
       at Context.<anonymous> (test/index-test.js:10:5)
-      at processImmediate (internal/timers.js:456:21)
-
-  2) logShout(string)
-       calls console.log() its one argument in all caps:
-     ReferenceError: logShout is not defined
-      at Context.<anonymous> (test/index-test.js:18:5)
-      at processImmediate (internal/timers.js:456:21)
-
-  3) logWhisper(string)
-       calls console.log() its one argument in all lowercase:
-     ReferenceError: logWhisper is not defined
-      at Context.<anonymous> (test/index-test.js:30:5)
-      at processImmediate (internal/timers.js:456:21)
-
-  4) sayHiToGrandma(string)
-       returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToGrandma is not defined
-      at Context.<anonymous> (test/index-test.js:40:5)
-      at processImmediate (internal/timers.js:456:21)
-
-  5) sayHiToGrandma(string)
-       returns "YES INDEED!" if `string` is uppercase:
-     ReferenceError: sayHiToGrandma is not defined
-      at Context.<anonymous> (test/index-test.js:44:5)
-      at processImmediate (internal/timers.js:456:21)
-
-  6) sayHiToGrandma(string)
-       returns "I love you, too." if `string` is "I love you, Grandma."`:
-     ReferenceError: sayHiToGrandma is not defined
-      at Context.<anonymous> (test/index-test.js:48:5)
-      at processImmediate (internal/timers.js:456:21)
-
-
-
-npm ERR! Test failed.  See above for more details.
+      at processImmediate (internal/timers.js:461:21)
 ```
 
-Hey! We got one to pass! Six left.
+Hey! We got one to pass! Time to tackle the next error!
 
 ## Your Turn
 
@@ -332,10 +321,11 @@ defined.
 > JavaScript, `.toLowerCase()` (e.g., `'HELLO'.toLowerCase()`) changes any
 > string to all lowercase.
 
-The next two tests are checking to see if a specific string is logged when a
-function is called. You will still need to use the `.toUpperCase()` and
-`.toLowerCase()` methods for `logShout(string)` and `logWhisper(string)`. Keep
-in mind, though, that these tests are not looking for return values, only logs.
+After you get `whisper(string)` passing, the next two tests will be checking to
+see if a specific string is logged when a function is called. You will still
+need to use the `.toUpperCase()` and `.toLowerCase()` methods for
+`logShout(string)` and `logWhisper(string)`. Keep in mind, though, that these
+tests are not looking for return values, only logs.
 
 The final function you need to create is `sayHiToGrandma()`. Grandma is a bit
 hard of hearing, so whispering can be a bit difficult, but she'll always hear
