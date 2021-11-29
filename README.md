@@ -17,8 +17,7 @@ them.
 If you haven't already, fork and clone this lab into your local environment.
 Navigate into its directory in the terminal, then run `code .` to open the files
 in Visual Studio Code. (If you are using a different text editor, the command
-will be different.) Finally, run `npm install` to install the lab's
-dependencies.
+will be different.)
 
 ### Code-Along
 
@@ -85,13 +84,13 @@ per function, but let's start with this one.
 
 ### Running the Tests
 
-To run the tests, run `npm test` in the terminal. The first output you'll see
-will look like this:
+To run the tests, run `learn test` in the terminal. The first output you'll see
+will look something like this:
 
 ```console
-$ npm test
-java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
-mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 10000
+$ learn test
+> java-script-intro-to-functions-lab@0.1.0 test
+> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
 
 
 
@@ -102,10 +101,10 @@ mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 1000
     2) receives one argument and returns it in all lowercase
 
   logShout(string)
-    3) calls console.log() its one argument in all caps
+    3) takes a string argument and logs it in all caps using console.log()
 
   logWhisper(string)
-    4) calls console.log() its one argument in all lowercase
+    4) takes a string argument and logs it in all lowercase using console.log()
 
   sayHiToGrandma(string)
     5) returns "I can't hear you!" if `string` is lowercase
@@ -113,60 +112,58 @@ mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 1000
     7) returns "I love you, too." if `string` is "I love you, Grandma."`
 
 
-  0 passing (99ms)
+  0 passing (120ms)
   7 failing
 
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
       at Context.<anonymous> (test/index-test.js:4:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   2) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
       at Context.<anonymous> (test/index-test.js:10:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   3) logShout(string)
-       calls console.log() its one argument in all caps:
+       takes a string argument and logs it in all caps using console.log():
      ReferenceError: logShout is not defined
       at Context.<anonymous> (test/index-test.js:18:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   4) logWhisper(string)
-       calls console.log() its one argument in all lowercase:
+       takes a string argument and logs it in all lowercase using console.log():
      ReferenceError: logWhisper is not defined
       at Context.<anonymous> (test/index-test.js:30:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   5) sayHiToGrandma(string)
        returns "I can't hear you!" if `string` is lowercase:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   6) sayHiToGrandma(string)
        returns "YES INDEED!" if `string` is uppercase:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:44:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
   7) sayHiToGrandma(string)
        returns "I love you, too." if `string` is "I love you, Grandma."`:
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 
-
-
-npm ERR! Test failed.  See above for more details.
 ```
 
 Hm, seven failed tests. Let's see if we can get that _first_ test to
 pass. Open up `index.js`.
 
-When we write our code, we follow the guidance of the tests. Let's take a look at that first error:
+When we write our code, we follow the guidance of the tests. Let's take a look
+at that first error:
 
 ```console
   1) shout(string)
@@ -297,10 +294,6 @@ shout(string)
      ReferenceError: sayHiToGrandma is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
       at processImmediate (internal/timers.js:456:21)
-
-
-
-npm ERR! Test failed.  See above for more details.
 ```
 
 Hey! We got one to pass! Six left.
@@ -385,19 +378,3 @@ tests, however, you don't need to include a function call — the tests will
 handle that for you.
 
 Good luck!
-
-## Saving Your Work Remotely
-
-Currently, the work you've done on this assignment is only on your local
-machine. To preserve your solution on your GitHub fork, you will need to stage
-the changes you've made, commit them, and push the commit up to GitHub. Use the
-following commands to do this:
-
-```console
-$ git add .
-$ git commit -m "Completed assignment"
-$ git push
-```
-
-If you visit your fork on GitHub, you should now see that _you've_ made the most
-recent commit, and your code will be present in the files.
