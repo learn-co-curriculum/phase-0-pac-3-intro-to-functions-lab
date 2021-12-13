@@ -90,7 +90,7 @@ will look like this:
 
 ```console
 $ npm test
-java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/junk/javascript-intro-to-functions-lab
+java-script-intro-to-functions-lab@0.1.0 test /Users/mbenton/Desktop/curriculum-team/prework/javascript-intro-to-functions-lab
 mocha -R mocha-multi --reporter-options spec=-,json=.results.json --timeout 10000
 
 
@@ -166,7 +166,8 @@ npm ERR! Test failed.  See above for more details.
 Hm, seven failed tests. Let's see if we can get that _first_ test to
 pass. Open up `index.js`.
 
-When we write our code, we follow the guidance of the tests. Let's take a look at that first error:
+When we write our code, we follow the guidance of the tests. Let's take a look
+at that first error:
 
 ```console
   1) shout(string)
