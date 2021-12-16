@@ -106,10 +106,10 @@ $ learn test
   logWhisper(string)
     4) takes a string argument and logs it in all lowercase using console.log()
 
-  sayHiToGrandma(string)
+  sayHiToHeadphonedRoomate(string)
     5) returns "I can't hear you!" if `string` is lowercase
     6) returns "YES INDEED!" if `string` is uppercase
-    7) returns "I love you, too." if `string` is "I love you, Grandma."`
+    7) returns "I would love to!" if `string` is "Let's have dinner together!"
 
 
   0 passing (120ms)
@@ -139,9 +139,9 @@ $ learn test
       at Context.<anonymous> (test/index-test.js:30:5)
       at processImmediate (internal/timers.js:461:21)
 
-  5) sayHiToGrandma(string)
+  5) sayHiToHeadphonedRoomate(string)
        returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToGrandma is not defined
+     ReferenceError: sayHiToHeadphonedRoomate is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
       at processImmediate (internal/timers.js:461:21)
 
@@ -151,9 +151,9 @@ $ learn test
       at Context.<anonymous> (test/index-test.js:44:5)
       at processImmediate (internal/timers.js:461:21)
 
-  7) sayHiToGrandma(string)
-       returns "I love you, too." if `string` is "I love you, Grandma."`:
-     ReferenceError: sayHiToGrandma is not defined
+  7) sayHiToHeadphonedRoomate(string)
+       returns "I would love to!" if `string` is "Let's have dinner together!"`:
+     ReferenceError: sayHiToHeadphonedRoomate is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
       at processImmediate (internal/timers.js:461:21)
 
@@ -250,10 +250,10 @@ shout(string)
   logWhisper(string)
     3) calls console.log() its one argument in all lowercase
 
-  sayHiToGrandma(string)
+  sayHiToHeadphonedRoomate(string)
     4) returns "I can't hear you!" if `string` is lowercase
     5) returns "YES INDEED!" if `string` is uppercase
-    6) returns "I love you, too." if `string` is "I love you, Grandma."`
+    6) returns "I would love to!" if `string` is "Let's have dinner together!"`
 
 
   1 passing (108ms)
@@ -277,21 +277,21 @@ shout(string)
       at Context.<anonymous> (test/index-test.js:30:5)
       at processImmediate (internal/timers.js:456:21)
 
-  4) sayHiToGrandma(string)
+  4) sayHiToHeadphonedRoomate(string)
        returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToGrandma is not defined
+     ReferenceError: sayHiToHeadphonedRoomate is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
       at processImmediate (internal/timers.js:456:21)
 
-  5) sayHiToGrandma(string)
+  5) sayHiToHeadphonedRoomate(string)
        returns "YES INDEED!" if `string` is uppercase:
-     ReferenceError: sayHiToGrandma is not defined
+     ReferenceError: sayHiToHeadphonedRoomate is not defined
       at Context.<anonymous> (test/index-test.js:44:5)
       at processImmediate (internal/timers.js:456:21)
 
-  6) sayHiToGrandma(string)
-       returns "I love you, too." if `string` is "I love you, Grandma."`:
-     ReferenceError: sayHiToGrandma is not defined
+  6) sayHiToHeadphonedRoomate(string)
+       returns "I would love to!" if `string` is "Let's have dinner together!"`:
+     ReferenceError: sayHiToHeadphonedRoomate is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
       at processImmediate (internal/timers.js:456:21)
 ```
@@ -332,7 +332,7 @@ in mind, though, that these tests are not looking for return values, only logs.
 
 The final function you need to create is `sayHiToGrandma()`. Grandma is a bit
 hard of hearing, so whispering can be a bit difficult, but she'll always hear
-you if you say, "I love you, Grandma." This time, you will need to return
+you if you say, "Let's have dinner together!" This time, you will need to return
 different strings depending on the string passed into the function.
 
 **Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to
@@ -344,7 +344,7 @@ conditions:
 - If the string that is passed into the function is all uppercase, the function
   should return "YES INDEED!"
 - If the string that is passed into the function is equal to "I love you,
-  Grandma.", the function should return "I love you, too."
+  Grandma.", the function should return "I would love to!"
 
 How do we check if a string is all lowercase or all uppercase? Let's take a look using a REPL:
 
@@ -368,7 +368,7 @@ them to conditionally return different strings? If you need a refresher, go back
 and review the lesson on Selection with Conditionals.
 
 Remember that punctuation is important! Humans might be able to understand that
-"I love you Grandma" is close enough to "I love you, Grandma." and means the
+"I love you Grandma" is close enough to "Let's have dinner together!" and means the
 same thing but JavaScript will not consider these equal!
 
 **Reminder:** As you're working through the tests, you can run your code by
