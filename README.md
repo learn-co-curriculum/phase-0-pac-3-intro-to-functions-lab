@@ -106,10 +106,10 @@ $ learn test
   logWhisper(string)
     4) takes a string argument and logs it in all lowercase using console.log()
 
-  sayHiToHeadphonedRoomate(string)
+  sayHiToHeadphonedRoommate(string)
     5) returns "I can't hear you!" if `string` is lowercase
     6) returns "YES INDEED!" if `string` is uppercase
-    7) returns "I would love to!" if `string` is "Let's have dinner together!"
+    7) returns "I would love to!" if `string` is "Let's have dinner together!"`
 
 
   0 passing (120ms)
@@ -139,21 +139,21 @@ $ learn test
       at Context.<anonymous> (test/index-test.js:30:5)
       at processImmediate (internal/timers.js:461:21)
 
-  5) sayHiToHeadphonedRoomate(string)
+  5) sayHiToHeadphonedRoommate(string)
        returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToHeadphonedRoomate is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
       at processImmediate (internal/timers.js:461:21)
 
-  6) sayHiToGrandma(string)
+  6) sayHiToHeadphonedRoommate(string)
        returns "YES INDEED!" if `string` is uppercase:
-     ReferenceError: sayHiToGrandma is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:44:5)
       at processImmediate (internal/timers.js:461:21)
 
-  7) sayHiToHeadphonedRoomate(string)
+  7) sayHiToHeadphonedRoommate(string)
        returns "I would love to!" if `string` is "Let's have dinner together!"`:
-     ReferenceError: sayHiToHeadphonedRoomate is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
       at processImmediate (internal/timers.js:461:21)
 
@@ -188,7 +188,9 @@ argument. The error tells us that `shout` isn't defined. So let's start by
 declaring our function in `index.js`:
 
 ```js
-function shout(string) {}
+function shout(string) {
+  // todo
+}
 ```
 
 We know we won't pass the test yet because our function doesn't do anything yet.
@@ -238,60 +240,60 @@ function shout(string) {
 and run our tests again. We get:
 
 ```console
-shout(string)
+  shout(string)
     ✓ receives one argument and returns it in all caps
 
   whisper(string)
     1) receives one argument and returns it in all lowercase
 
   logShout(string)
-    2) calls console.log() its one argument in all caps
+    2) takes a string argument and logs it in all caps using console.log()
 
   logWhisper(string)
-    3) calls console.log() its one argument in all lowercase
+    3) takes a string argument and logs it in all lowercase using console.log()
 
-  sayHiToHeadphonedRoomate(string)
+  sayHiToHeadphonedRoommate(string)
     4) returns "I can't hear you!" if `string` is lowercase
     5) returns "YES INDEED!" if `string` is uppercase
     6) returns "I would love to!" if `string` is "Let's have dinner together!"`
 
 
-  1 passing (108ms)
+  1 passing (141ms)
   6 failing
 
   1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
       at Context.<anonymous> (test/index-test.js:10:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (node:internal/timers:464:21)
 
   2) logShout(string)
-       calls console.log() its one argument in all caps:
+       takes a string argument and logs it in all caps using console.log():
      ReferenceError: logShout is not defined
       at Context.<anonymous> (test/index-test.js:18:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (node:internal/timers:464:21)
 
   3) logWhisper(string)
-       calls console.log() its one argument in all lowercase:
+       takes a string argument and logs it in all lowercase using console.log():
      ReferenceError: logWhisper is not defined
       at Context.<anonymous> (test/index-test.js:30:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (node:internal/timers:464:21)
 
-  4) sayHiToHeadphonedRoomate(string)
+  4) sayHiToHeadphonedRoommate(string)
        returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToHeadphonedRoomate is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:40:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (node:internal/timers:464:21)
 
-  5) sayHiToHeadphonedRoomate(string)
+  5) sayHiToHeadphonedRoommate(string)
        returns "YES INDEED!" if `string` is uppercase:
-     ReferenceError: sayHiToHeadphonedRoomate is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:44:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (node:internal/timers:464:21)
 
-  6) sayHiToHeadphonedRoomate(string)
+  6) sayHiToHeadphonedRoommate(string)
        returns "I would love to!" if `string` is "Let's have dinner together!"`:
-     ReferenceError: sayHiToHeadphonedRoomate is not defined
+     ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
       at processImmediate (internal/timers.js:456:21)
 ```
@@ -330,23 +332,25 @@ function is called. You will still need to use the `.toUpperCase()` and
 `.toLowerCase()` methods for `logShout(string)` and `logWhisper(string)`. Keep
 in mind, though, that these tests are not looking for return values, only logs.
 
-The final function you need to create is `sayHiToGrandma()`. Grandma is a bit
-hard of hearing, so whispering can be a bit difficult, but she'll always hear
-you if you say, "Let's have dinner together!" This time, you will need to return
-different strings depending on the string passed into the function.
+The final function you need to create is `sayHiToHeadphonedRoommate()`. Your
+roommate is very into their music, so whispering can be a bit difficult, but
+they'll always hear you if you say, "Let's have dinner together!" This time,
+you will need to return different strings depending on the string passed into
+the function.
 
-**Note:** Although there are 3 tests for `sayHiToGrandma()`, you only need to
-write **one** function. This function should be able to handle all three test
-conditions:
+**Note:** Although there are 3 tests for `sayHiToHeadphonedRoommate()`, you only
+need to write **one** function. This function should be able to handle all three
+test conditions:
 
 - If the string that is passed into the function is all lowercase, the function
   should return "I can't hear you!"
 - If the string that is passed into the function is all uppercase, the function
   should return "YES INDEED!"
-- If the string that is passed into the function is equal to "I love you,
-  Grandma.", the function should return "I would love to!"
+- If the string that is passed into the function is equal to "Let's have dinner
+  together!", the function should return "I would love to!"
 
-How do we check if a string is all lowercase or all uppercase? Let's take a look using a REPL:
+How do we check if a string is all lowercase or all uppercase? Let's take a look
+using a REPL:
 
 <iframe height="400px" width="100%" src="https://repl.it/@LizBurton/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -368,8 +372,8 @@ them to conditionally return different strings? If you need a refresher, go back
 and review the lesson on Selection with Conditionals.
 
 Remember that punctuation is important! Humans might be able to understand that
-"I love you Grandma" is close enough to "Let's have dinner together!" and means the
-same thing but JavaScript will not consider these equal!
+"Lets have dinner together" is close enough to "Let's have dinner together!" and
+means the same thing, but JavaScript will not consider these equal!
 
 **Reminder:** As you're working through the tests, you can run your code by
 running `node index.js` in the terminal. If you want to do this, remember that
