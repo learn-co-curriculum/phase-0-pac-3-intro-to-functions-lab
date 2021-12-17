@@ -159,7 +159,8 @@ $ learn test
 ```
 
 Hm, seven failed tests - that seems like a lot to navigate. Let's go ahead and
-get Mocha set up to only show the first failing test. Find the test script in the `package.json` file and add the `--bail` tag to the end:
+get Mocha set up to only show the first failing test. Find the test script in
+the `package.json` file and add the `--bail` tag to the end:
 
 ```json
 "test": "mocha --timeout 5000 --reporter 'json' > .results.json & mocha --bail"
