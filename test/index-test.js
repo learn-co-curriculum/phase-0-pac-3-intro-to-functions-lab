@@ -35,17 +35,17 @@ describe('logWhisper(string)', function() {
   })
 })
 
-describe('sayHiToHeadphonedRoomate(string)', function() {
+describe('sayHiToHeadphonedRoommate(string)', function() {
   it('returns "I can\'t hear you!" if `string` is lowercase', function() {
-    expect(sayHiToHeadphonedRoomate('hello')).toEqual("I can't hear you!");
+    expect(sayHiToHeadphonedRoommate('hello')).toEqual("I can't hear you!");
   })
 
   it('returns "YES INDEED!" if `string` is uppercase', function() {
-    expect(sayHiToHeadphonedRoomate('HELLO')).toEqual("YES INDEED!");
+    expect(sayHiToHeadphonedRoommate('HELLO')).toEqual("YES INDEED!");
   })
 
-  it('returns "I would love to!" if `string` is "I love you, Grandma."`', function () {
-    expect(sayHiToHeadphonedRoomate("Let's have dinner together!")).toEqual(
+  it('returns "I would love to!" if `string` is "Let\'s have dinner together!"`', function () {
+    expect(sayHiToHeadphonedRoommate("Let's have dinner together!")).toEqual(
       "I would love to!"
     );
   });
