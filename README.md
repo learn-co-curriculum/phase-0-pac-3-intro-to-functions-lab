@@ -155,12 +155,44 @@ $ learn test
        returns "I would love to!" if `string` is "Let's have dinner together!"`:
      ReferenceError: sayHiToHeadphonedRoommate is not defined
       at Context.<anonymous> (test/index-test.js:48:5)
+      at processImmediate (internal/timers.j
+```
+
+Hm, seven failed tests - that seems like a lot to navigate. Let's go ahead and
+get Mocha set up to only show the first failing test. Find the test script in
+the `package.json` file and add the `--bail` tag to the end:
+
+```json
+"test": "mocha --timeout 5000 --reporter 'json' > .results.json & mocha --bail"
+```
+
+Save the file and run the tests. You should now see something like this:
+
+```console
+$ npm test
+
+> java-script-intro-to-functions-lab@0.1.0 test
+> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
+
+
+
+  shout(string)
+    1) receives one argument and returns it in all caps
+
+  0 passing (159ms)
+  1 failing
+
+  1) shout(string)
+       receives one argument and returns it in all caps:
+     ReferenceError: shout is not defined
+      at Context.<anonymous> (test/index-test.js:4:5)
       at processImmediate (internal/timers.js:461:21)
+
 
 ```
 
-Hm, seven failed tests. Let's see if we can get that _first_ test to
-pass. Open up `index.js`.
+Much better! Now let's see if we can get that first test to pass. Open up
+`index.js`.
 
 When we write our code, we follow the guidance of the tests. Let's take a look
 at that first error:
@@ -246,59 +278,17 @@ and run our tests again. We get:
   whisper(string)
     1) receives one argument and returns it in all lowercase
 
-  logShout(string)
-    2) takes a string argument and logs it in all caps using console.log()
-
-  logWhisper(string)
-    3) takes a string argument and logs it in all lowercase using console.log()
-
-  sayHiToHeadphonedRoommate(string)
-    4) returns "I can't hear you!" if `string` is lowercase
-    5) returns "YES INDEED!" if `string` is uppercase
-    6) returns "I would love to!" if `string` is "Let's have dinner together!"`
-
-
-  1 passing (141ms)
-  6 failing
+  1 passing (147ms)
+  1 failing
 
   1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
       at Context.<anonymous> (test/index-test.js:10:5)
-      at processImmediate (node:internal/timers:464:21)
-
-  2) logShout(string)
-       takes a string argument and logs it in all caps using console.log():
-     ReferenceError: logShout is not defined
-      at Context.<anonymous> (test/index-test.js:18:5)
-      at processImmediate (node:internal/timers:464:21)
-
-  3) logWhisper(string)
-       takes a string argument and logs it in all lowercase using console.log():
-     ReferenceError: logWhisper is not defined
-      at Context.<anonymous> (test/index-test.js:30:5)
-      at processImmediate (node:internal/timers:464:21)
-
-  4) sayHiToHeadphonedRoommate(string)
-       returns "I can't hear you!" if `string` is lowercase:
-     ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:40:5)
-      at processImmediate (node:internal/timers:464:21)
-
-  5) sayHiToHeadphonedRoommate(string)
-       returns "YES INDEED!" if `string` is uppercase:
-     ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:44:5)
-      at processImmediate (node:internal/timers:464:21)
-
-  6) sayHiToHeadphonedRoommate(string)
-       returns "I would love to!" if `string` is "Let's have dinner together!"`:
-     ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:48:5)
-      at processImmediate (internal/timers.js:456:21)
+      at processImmediate (internal/timers.js:461:21)
 ```
 
-Hey! We got one to pass! Six left.
+Hey! We got one to pass! Time to tackle the next error!
 
 ## Your Turn
 
@@ -327,10 +317,11 @@ defined.
 > JavaScript, `.toLowerCase()` (e.g., `'HELLO'.toLowerCase()`) changes any
 > string to all lowercase.
 
-The next two tests are checking to see if a specific string is logged when a
-function is called. You will still need to use the `.toUpperCase()` and
-`.toLowerCase()` methods for `logShout(string)` and `logWhisper(string)`. Keep
-in mind, though, that these tests are not looking for return values, only logs.
+After you get `whisper(string)` passing, the next two tests will be checking to
+see if a specific string is logged when a function is called. You will still
+need to use the `.toUpperCase()` and `.toLowerCase()` methods for
+`logShout(string)` and `logWhisper(string)`. Keep in mind, though, that these
+tests are not looking for return values, only logs.
 
 The final function you need to create is `sayHiToHeadphonedRoommate()`. Your
 roommate is very into their music, so whispering can be a bit difficult, but
