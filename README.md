@@ -90,7 +90,7 @@ will look something like this:
 ```console
 $ learn test
 > java-script-intro-to-functions-lab@0.1.0 test
-> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
+> mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json
 
 
 
@@ -163,7 +163,7 @@ get Mocha set up to only show the first failing test. Find the test script in
 the `package.json` file and add the `--bail` tag to the end:
 
 ```json
-"test": "mocha --timeout 5000 --reporter 'json' > .results.json & mocha --bail"
+"test": "mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json --bail"
 ```
 
 Save the file and run the tests. You should now see something like this:
@@ -172,7 +172,7 @@ Save the file and run the tests. You should now see something like this:
 $ npm test
 
 > java-script-intro-to-functions-lab@0.1.0 test
-> mocha --timeout 5000 --reporter 'json' > .results.json & mocha
+> mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json --bail
 
 
 
