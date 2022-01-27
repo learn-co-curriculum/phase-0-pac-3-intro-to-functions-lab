@@ -341,16 +341,27 @@ test conditions:
   together!", the function should return "I would love to!"
 
 How do we check if a string is all lowercase or all uppercase? Let's take a look
-using a REPL:
+using a REPL. Here's the code we're going to try out:
 
-<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```js
+const string = "Hello!";
+
+console.log(string);
+console.log(string.toUpperCase());
+
+string === string.toUpperCase();
+```
 
 In the first line we're defining a string variable. In the next two lines we log
 the original variable, then the variable after calling `toUpperCase()` on it.
-Finally, we're checking to see whether those two values are equal. If you click
-the Run button, you'll see that the original string is mixed case and the upper
-cased version of it is (not surprisingly) uppercase. It should not come as a
-surprise, therefore, that comparing them with the equality operator (`===`)
+Finally, we're checking to see whether those two values are equal. Copy the code
+into the console below and press enter.
+
+<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/InsubstantialTanInternet?lite=true&outputonly=1" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+Take a look at the logged values: the original string is mixed case and the
+upper cased version of it is (not surprisingly) uppercase. It should not come as
+a surprise, therefore, that comparing them with the equality operator (`===`)
 returns false. What do you think will happen if we initialize `string` to
 "HELLO!" instead? Play around with different values for `string` and see what
 happens. Also try doing the same thing with `toLowerCase()` and make sure you
