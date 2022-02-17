@@ -343,7 +343,7 @@ test conditions:
 How do we check if a string is all lowercase or all uppercase? Let's take a look
 using a REPL:
 
-<iframe height="400px" width="100%" src="https://repl.it/@LizBurton/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="400px" width="100%" src="https://replit.com/@lizbur10/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 In the first line we're defining a string variable. In the next two lines we log
 the original variable, then the variable after calling `toUpperCase()` on it.
@@ -352,9 +352,9 @@ the Run button, you'll see that the original string is mixed case and the upper
 cased version of it is (not surprisingly) uppercase. It should not come as a
 surprise, therefore, that comparing them with the equality operator (`===`)
 returns false. What do you think will happen if we initialize `string` to
-"HELLO!" instead? Play around with different values for `string` and see what
-happens. Also try doing the same thing with `toLowerCase()` and make sure you
-understand what's happening.
+"HELLO!" instead? Play around with different values for `string` in [replit][]
+and see what happens. Also try doing the same thing with `toLowerCase()` and
+make sure you understand what's happening.
 
 Basically, if we compare a string to its uppercased (or lowercased) version and
 the two values are equal, then we know that the original string is uppercase (or
@@ -373,3 +373,5 @@ tests, however, you don't need to include a function call — the tests will
 handle that for you.
 
 Good luck!
+
+[replit]: https://replit.com/languages/javascript
