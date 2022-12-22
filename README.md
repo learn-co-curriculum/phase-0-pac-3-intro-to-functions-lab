@@ -44,7 +44,7 @@ else (usually multiple someones) wrote for our use. The code above makes the
 libraries available inside our test environment, which enables us to run the
 tests.
 
-If you go to `test/index-test.js`, you'll see
+If you go to `test/indexTest.js`, you'll see
 
 ```js
 describe("shout(string)", function () {
@@ -119,43 +119,43 @@ $ npm test
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
-      at Context.<anonymous> (test/index-test.js:4:5)
+      at Context.<anonymous> (test/indexTest.js:4:5)
       at processImmediate (internal/timers.js:461:21)
 
   2) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
-      at Context.<anonymous> (test/index-test.js:10:5)
+      at Context.<anonymous> (test/indexTest.js:10:5)
       at processImmediate (internal/timers.js:461:21)
 
   3) logShout(string)
        takes a string argument and logs it in all caps using console.log():
      ReferenceError: logShout is not defined
-      at Context.<anonymous> (test/index-test.js:18:5)
+      at Context.<anonymous> (test/indexTest.js:18:5)
       at processImmediate (internal/timers.js:461:21)
 
   4) logWhisper(string)
        takes a string argument and logs it in all lowercase using console.log():
      ReferenceError: logWhisper is not defined
-      at Context.<anonymous> (test/index-test.js:30:5)
+      at Context.<anonymous> (test/indexTest.js:30:5)
       at processImmediate (internal/timers.js:461:21)
 
   5) sayHiToHeadphonedRoommate(string)
        returns "I can't hear you!" if `string` is lowercase:
      ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:40:5)
+      at Context.<anonymous> (test/indexTest.js:40:5)
       at processImmediate (internal/timers.js:461:21)
 
   6) sayHiToHeadphonedRoommate(string)
        returns "YES INDEED!" if `string` is uppercase:
      ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:44:5)
+      at Context.<anonymous> (test/indexTest.js:44:5)
       at processImmediate (internal/timers.js:461:21)
 
   7) sayHiToHeadphonedRoommate(string)
        returns "I would love to!" if `string` is "Let's have dinner together!"`:
      ReferenceError: sayHiToHeadphonedRoommate is not defined
-      at Context.<anonymous> (test/index-test.js:48:5)
+      at Context.<anonymous> (test/indexTest.js:48:5)
       at processImmediate (internal/timers.j
 ```
 
@@ -186,7 +186,7 @@ $ npm test
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
-      at Context.<anonymous> (test/index-test.js:4:5)
+      at Context.<anonymous> (test/indexTest.js:4:5)
       at processImmediate (internal/timers.js:461:21)
 
 
@@ -202,7 +202,7 @@ at that first error:
   1) shout(string)
        receives one argument and returns it in all caps:
      ReferenceError: shout is not defined
-      at Context.<anonymous> (test/index-test.js:4:5)
+      at Context.<anonymous> (test/indexTest.js:4:5)
       at processImmediate (internal/timers.js:461:21)
 ```
 
@@ -236,7 +236,7 @@ we need to do:
      Error: Expected undefined to equal 'HELLO'
       at assert (node_modules/expect/lib/assert.js:29:9)
       at Expectation.toEqual (node_modules/expect/lib/Expectation.js:81:30)
-      at Context.<anonymous> (test/index-test.js:4:28)
+      at Context.<anonymous> (test/indexTest.js:4:28)
       at processImmediate (internal/timers.js:461:21)
 ```
 
@@ -285,7 +285,7 @@ and run our tests again. We get:
   1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
-      at Context.<anonymous> (test/index-test.js:10:5)
+      at Context.<anonymous> (test/indexTest.js:10:5)
       at processImmediate (internal/timers.js:461:21)
 ```
 
@@ -306,7 +306,7 @@ whisper or they shout. The next test is similar to the first:
 1) whisper(string)
        receives one argument and returns it in all lowercase:
      ReferenceError: whisper is not defined
-      at Context.<anonymous> (test/index-test.js:10:5)
+      at Context.<anonymous> (test/indexTest.js:10:5)
       at processImmediate (internal/timers.js:456:21)
 ```
 
