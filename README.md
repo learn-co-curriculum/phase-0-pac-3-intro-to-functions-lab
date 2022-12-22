@@ -84,11 +84,12 @@ per function, but let's start with this one.
 
 ### Running the Tests
 
-To run the tests, run `learn test` in the terminal. The first output you'll see
-will look something like this:
+To run the tests, first run `npm install` in the terminal to install the
+dependencies, then run `npm test`. The first output you'll see will look
+something like this:
 
 ```console
-$ learn test
+$ npm test
 > java-script-intro-to-functions-lab@0.1.0 test
 > mocha --timeout 5000 -R mocha-multi --reporter-options spec=-,json=.results.json
 
@@ -205,7 +206,7 @@ at that first error:
       at processImmediate (internal/timers.js:461:21)
 ```
 
-The output above comes from this test in `index-test.js`:
+The output above comes from this test in `indexTest.js`:
 
 ```js
 describe("shout(string)", function () {
@@ -341,7 +342,7 @@ test conditions:
   together!", the function should return "I would love to!"
 
 How do we check if a string is all lowercase or all uppercase? Let's take a look
-using a REPL:
+using a REPL. Click on "Show files" and then the "index.js" file to see the code:
 
 <iframe height="400px" width="100%" src="https://replit.com/@lizbur10/InsubstantialTanInternet?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -371,6 +372,13 @@ running `node index.js` in the terminal. If you want to do this, remember that
 you'll need to _call_ the function inside `index.js`. If you are just running
 tests, however, you don't need to include a function call — the tests will
 handle that for you.
+
+After you have all the tests passing, remember to commit and push your changes
+up to GitHub, then submit your work to Canvas using CodeGrade. If you need a
+reminder, go back to the [Complete Your First Software Engineering
+Assignment][complete-assignment] lesson to review the process.
+
+[complete-assignment]: https://github.com/learn-co-curriculum/phase-0-completing-assignments-codegrade
 
 Good luck!
 
