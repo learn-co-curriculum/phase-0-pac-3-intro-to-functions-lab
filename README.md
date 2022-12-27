@@ -14,7 +14,7 @@ Welcome to the JavaScript functions lab! You'll notice a few new things in this
 lesson that we haven't encountered before. Don't worry, we'll walk you through
 them.
 
-If you haven't already, fork and clone this lab into your local environment.
+If you haven't already, **fork and clone** this lab into your local environment.
 Navigate into its directory in the terminal, then run `code .` to open the files
 in Visual Studio Code. (If you are using a different text editor, the command
 will be different.)
