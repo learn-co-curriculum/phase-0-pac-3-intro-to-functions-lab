@@ -28,7 +28,6 @@ function sayHiToHeadphonedRoommate(string) {
         return "I can\'t hear you!";
         
     } else if (string === stringUp) {
-        return "YES INDEED!";
-        
+        return "YES INDEED!";        
     }
 }
