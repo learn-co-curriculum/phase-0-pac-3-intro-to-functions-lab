@@ -381,6 +381,4 @@ Assignment][complete-assignment] lesson to review the process.
 
 [complete-assignment]: https://github.com/learn-co-curriculum/phase-0-completing-assignments-codegrade
 
-Good luck!
-
 [replit]: https://replit.com/languages/javascript
